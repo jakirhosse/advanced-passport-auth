@@ -8,7 +8,7 @@ export const registerUser = async (userData: IUser) => {
   if (existingUser) {
     throw new Error('User already exists');
   }
-  const hashedPassword = await bcrypt.hash(userData.password, 10);
+  const hashedPassword = await bcrypt.hash(userData.password, 10); 
   const newUser = new User({ ...userData, password: hashedPassword });
   return await newUser.save();
 };
